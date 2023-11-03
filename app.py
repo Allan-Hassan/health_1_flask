@@ -3,7 +3,7 @@ from flask_bootstrap import Bootstrap5
 from dotenv import load_dotenv
 # from flask_sqlalchemy import SQLAlchemy
 import os
-from classes.models import Category, db
+from classes.models import Category, Product, db
 
 load_dotenv()
 
@@ -21,6 +21,12 @@ def home():
 def show_categories():
     categories = Category.query.all()
     return render_template('categories.html', categories = categories)
+
+@app.route('/category/<int:id>')
+def show_category(id):
+    products = Product.query.filter_by(category_id = id).all()
+    category_name = Category.query.filter_by(id = id).first().name
+    return render_template('category.html', products = products, category_name = category_name)
 
 if __name__ == '__main__':
     app.run(debug = True)
