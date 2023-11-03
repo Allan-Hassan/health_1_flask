@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{category_name}}
+{% endblock %}
+
+{% block content %}
+    {% include 'components/banner.html' %}
+    {% include 'components/navbar.html' %}
+    {% include 'components/jumbotron.html' %}
+    <h3 class="text-center m-4">Producten van categorie {{category_name}}</h3>
+    <div class="container d-flex flex-row justify-content-center">
+        {% for product in products %}
+        <div class="card card px-1 mx-1 shadow-lg" style="width: 50%;">
+            <img style="width: 100%;" src="{{url_for('static',filename='images/' + product.picture)}}" class="card-img-top" alt="..."  style="width: 120px; height: auto;">
+            <div class="card-body">
+                <h5 class="card-footer">{{product.name}}</h5>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+    <a class="lead pt-5 mx-5" href="{{url_for('show_categories')}}">Terug naar categorieen</a>
+    {% include 'components/footer.html' %}
+{% endblock %}

@@ -5,13 +5,18 @@
 {% block content %}
     {% include 'components/banner.html' %}
     {% include 'components/navbar.html' %}
-    {% include 'components/footer.html' %}
-    {% for category in categories %}
-        <div class="card" style="width: 18rem;">
-            <img src="{{url_for('static',filename='images/categories/' + category.picture)}}" class="card-img-top" alt="...">
+    {% include 'components/jumbotron.html' %}
+    <h3 class="text-center m-4">Categorieen</h3>
+    <div class="container d-flex flex-row justify-content-center">
+        {% for category in categories %}
+        <div class="card px-1 mx-1 shadow-lg">
+            <img src="{{url_for('static',filename='images/categories/' + category.picture)}}" class="card-img-top img-fluid" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{category.name}}</h5>
             </div>
+            <a class="link-primary text-center" href="{{url_for('show_category', id = category.id)}}">Bekijk apparaten</a>
         </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
+    {% include 'components/footer.html' %}
 {% endblock  %}
