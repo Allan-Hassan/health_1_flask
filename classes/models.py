@@ -19,3 +19,11 @@ class Product(db.Model):
 
     def __repr__(self): # This method is for debugging purposes
         return f"Product('{self.name}', '{self.picture}', '{self.description}', '{self.price}', '{self.category_id}')"    
+    
+class Role(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    title = db.Column(db.String(50), nullable = False)
+    level = db.Column(db.Integer, nullable = False)
+
+    def __repr__(self): # This method is for debugging purposes
+        return f"Role('{self.name}')"    
