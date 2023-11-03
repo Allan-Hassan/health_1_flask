@@ -28,5 +28,21 @@ def show_category(id):
     category_name = Category.query.filter_by(id = id).first().name
     return render_template('category.html', products = products, category_name = category_name)
 
+@app.route('/login')
+def show_login_page():
+    return render_template('auth/guest/login.html')
+
+@app.route('/login', methods = ['POST'])
+def login():
+    # username = request.form['username']
+    # password = request.form['password']
+    # if username == 'admin' and password == 'admin':
+    #     return redirect(url_for('home'))
+    # else:
+    #     return redirect(url_for('show_login_page'))
+    pass
+@app.route('/register')
+def show_register_page():
+    return render_template('auth/guest/register.html')
 if __name__ == '__main__':
     app.run(debug = True)
