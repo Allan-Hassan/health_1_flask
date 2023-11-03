@@ -9,30 +9,26 @@
     {% include 'components/jumbotron.html' %}
     <h3 class="text-center m-4">Registreren</h3>
     <div class="container d-flex justify-content-center">
-        <form class="w-50 border shadow-lg p-4">
+        <form class="w-50 border shadow-lg p-4" action="{{url_for('register')}}" method="post">
             <div class="mb-3">
               <label for="email_address" class="form-label">Email adres</label>
-              <input type="email" class="form-control" id="email_address" placeholder="janklaassen@yahoo.com">
+              <input name="email" type="email" class="form-control" id="email_address" placeholder="janklaassen@yahoo.com">
               <div id="emailHelp" class="form-text">We delen uw gegevens nooit met derden</div>
             </div>
             <div class="mb-3">
                 <label for="name" class="form-label">Naam:</label>
-                <input type="text" class="form-control" id="name">
+                <input name="name" type="text" class="form-control" id="name">
                 <div id="emailHelp" class="form-text">We delen uw gegevens nooit met derden</div>
               </div>
             <div class="mb-3">
               <label for="password" class="form-label">Wachtwoord</label>
-              <input type="password" class="form-control" id="password">
+              <input name="password" type="password" class="form-control" id="password">
             </div>
             <div class="mb-3">
               <label for="password_confirmation" class="form-label">Wachtwoord bevestigen</label>
-              <input type="password" class="form-control" id="password_confirmation">
+              <input name="password_confirmation" type="password" class="form-control" id="password_confirmation">
             </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Onthoud mij</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Inloggen</button>
+            <button type="submit" class="btn btn-primary">Aanmelden</button>
             <p class="pt-3">Heb je al een account? <a href="{{url_for('show_login_page')}}">Log in nu!</a></p>
           </form>
     </div>
