@@ -5,12 +5,10 @@
 {% block content %}
     {% include 'components/banner.html' %}
     {% include 'components/navbar.html' %}
-    <div class="my-2">
-        <img class="w-100 shadow-lg" src="{{url_for('static', filename='images/healthone-wide1.jpg')}}" alt="">
-        <div class="container mt-3">
-            <h2>Sport center</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea exercitationem tempora voluptatum in, itaque autem dolorem facilis aut animi odit eum quos rem aliquam, tenetur optio quaerat pariatur harum excepturi.</p>
-        </div>
+    {% include 'components/jumbotron.html' %}
+    <div class="container mt-3">
+        <h2>Sport center</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea exercitationem tempora voluptatum in, itaque autem dolorem facilis aut animi odit eum quos rem aliquam, tenetur optio quaerat pariatur harum excepturi.</p>
     </div>
     {% include 'components/footer.html' %}
 {% endblock %}
