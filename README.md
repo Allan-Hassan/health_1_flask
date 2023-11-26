@@ -119,5 +119,27 @@ pip install Flask-WTF
 To work with authentication, we need to install the module Flask-Login
 
 ```bash
+
+
+### pagination example
+```pyhton
+@app.route('/cats')
+def dis_cats():
+    connection = connection = sqlite3.connect('databases/testgpt.db')
+    connection.row_factory = sqlite3.Row
+    cursor = connection.cursor()
+    cursor.execute('SELECT * FROM categories')
+    cats = cursor.fetchall()
+    
+    page = request.args.get('page', 1, type=int)
+    items_per_page = 4
+    start_index = (page - 1) * items_per_page
+    end_index = start_index + items_per_page
+    total_pages = (len(cats) + items_per_page + 1) // items_per_page
+
+    cats_to_display = cats[start_index:end_index]
+
+    return render_template('cats.html', cats=cats_to_display, total_pages=total_pages)
+```
 pip install Flask-Login
 ```
