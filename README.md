@@ -119,6 +119,8 @@ pip install Flask-WTF
 To work with authentication, we need to install the module Flask-Login
 
 ```bash
+pip install Flask-Login
+```
 
 
 ### pagination example
@@ -140,6 +142,4 @@ def dis_cats():
     cats_to_display = cats[start_index:end_index]
 
     return render_template('cats.html', cats=cats_to_display, total_pages=total_pages)
-```
-pip install Flask-Login
 ```
